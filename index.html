@@ -9,35 +9,49 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background-image.jpg') no-repeat center center fixed;
+            background-color: #222;
             background-size: cover;
-            color: #333;
+            color: #b2b2b2;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
         }
         h1, h2 {
             text-align: center;
         }
         .section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
             margin-bottom: 40px;
         }
-        .image {
-            display: block;
-            margin: 0 auto;
+        .text-content {
+            flex: 1;
+            padding: 20px;
+            border: .5px solid #bc8349;
+            border-radius: 5px;
+            margin: 10px;
+            height:425px
+
+        }
+        .image-content {
+            flex: 1;
+            text-align: center;
+        }
+        .image-content img {
             max-width: 100%;
             height: auto;
+            border-radius: 10px;
         }
         .button {
             display: block;
             width: 200px;
             margin: 20px auto;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #bc8349;
             color: white;
             text-align: center;
             border-radius: 5px;
@@ -47,28 +61,114 @@
             display: none;
             text-align: center;
         }
+        .collapsible {
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            background-color: #f2f2f2;
+            margin: 5px 0;
+        }
+        .active, .collapsible:hover {
+            background-color: #ccc;
+        }
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .two-columns {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .column {
+            flex: 1;
+            border: .5px solid #77c3e2;
+            padding: 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Introduction to Web Applications</h1>
-        
+        <div class="button" onclick="showMoreInfo()">Jump to Hyperspace</div>
+        <div class="hidden-content" id="more-info">
+            <p>Just as the Millennium Falcon navigates through space, overcoming obstacles and efficiently reaching its destination, web applications interact with front-end interfaces, back-end servers, and databases to provide users with a smooth, interactive, and dynamic experience across the web.</p>
+        </div>
         <div class="section" id="intro">
-            <h2>What are Web Applications?</h2>
-            <p>Web applications are software applications that run on a web server rather than being installed on the local computer. They can be accessed through a web browser and offer various functionalities over the internet.</p>
-            <img src="web-applications.jpg" alt="Web Applications" class="image">
+            <div class="text-content">
+                <h2>What are Web Applications?</h2>
+                <p>Web applications are like a space ships that can travel the digital galaxy.</p>
+                <p>Imagine that a web application is like the Millennium Falcon, a versatile and powerful ship that can traverse the vast expanse of the internet (the galaxy). Just as the Falcon is piloted by a pilot (the user) and assisted by a copilot (the browser), the web application is navigated by users through a web browser interface.</p>
+            </div>
+            <div class="image-content">
+                <img src="millennium.png" alt="Millennium Falcon" class="image">
+            </div>
         </div>
 
         <div class="section" id="database">
-            <h2>How Web Applications Interact with Back-End Databases</h2>
-            <p>Web applications interact with back-end databases to retrieve, store, and manage data. The back-end server processes user requests, queries the database, and sends the data back to the front-end for display.</p>
-            <img src="database-interaction.jpg" alt="Database Interaction" class="image">
+            <div class="image-content">
+                <img src="cockpit.png" alt="Cockpit" class="image">
+            </div>
+            <div class="text-content">
+                <h2>How Web Applications Interact with Back-End Databases</h2>
+                <p>The Millennium Falcon's cockpit and control panels represent the front-end of the web application. This is where a pilot interacts with the ship, just as users interact with the application's user interface (UI) built with things like HTML, CSS, and JavaScript.</p>
+                <p>When you need to jump to hyperspace or communicate with the Rebel base, you send out signals. Similarly, the front-end sends HTTP requests (GET, POST, PUT, DELETE) to the back-end server, much like signals sent to mission control.</p>
+            </div>
+            
         </div>
 
         <div class="section" id="use-cases">
-            <h2>Use Cases in Businesses</h2>
-            <h3>Intranet</h3>
-            <p>Intranet web applications are used within a company's internal network to facilitate communication, collaboration, and access to corporate resources.</p>
-            <h3>Internet</h3>
-            <p>Internet web applications are available to users over the internet, providing services like online banking, e-commerce, social media, and more.</p>
-            <img
+            <div class="text-content">
+                <h2>Use Cases in Businesses</h2>
+                <div class="two-columns">
+                    <div class="column">
+                        <h3>Intranet</h3>
+                        <p>The ship's engines and hyperdrive are the back-end server, powered by robust technology (Node.js, Python, Java, etc.). These engines process the signals and handle the heavy lifting of the journey, akin to the server processing requests and managing tasks.</p>
+                    </div>
+                    <div class="column">
+                        <h3>Internet</h3>
+                        <p>The Millennium Falcon's navigation computer is linked to the Rebel Alliance’s vast databases, which provide crucial information for the mission. When a request is made, the server (engines) queries the database (navigation computer) using  things like SQL or NoSQL queries. This retrieves or updates the data needed for the mission.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-content">
+                <img src="navigation-computer.png" alt="Navigation Computer" class="image">
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        function showMoreInfo() {
+            var info = document.getElementById('more-info');
+            if (info.style.display === 'none' || info.style.display === '') {
+                info.style.display = 'block';
+            } else {
+                info.style.display = 'none';
+            }
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Sets the character encoding for the HTML document to UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets the viewport to make the website responsive on different devices -->
     <title>Introduction to Web Applications</title>
+    <!-- Title of the webpage that appears in the browser tab -->
     <style>
+        /* Basic styling for the webpage */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,39 +17,45 @@
             background-size: cover;
             color: #b2b2b2;
         }
+        /* Styling for the main container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             border-radius: 10px;
         }
+        /* Centering the headings */
         h1, h2 {
             text-align: center;
         }
+        /* Styling for each section */
         .section {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             margin-bottom: 40px;
         }
+        /* Styling for the text content in sections */
         .text-content {
             flex: 1;
             padding: 20px;
             border: .5px solid #bc8349;
             border-radius: 5px;
             margin: 10px;
-            height:425px
-
+            height: 425px;
         }
+        /* Styling for the image content in sections */
         .image-content {
             flex: 1;
             text-align: center;
         }
+        /* Ensures images fit within their container and have rounded corners */
         .image-content img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
         }
+        /* Styling for the button */
         .button {
             display: block;
             width: 200px;
@@ -57,10 +67,12 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        /* Styling for hidden content */
         .hidden-content {
             display: none;
             text-align: center;
         }
+        /* Styling for collapsible elements */
         .collapsible {
             cursor: pointer;
             padding: 10px;
@@ -72,9 +84,11 @@
             background-color: #f2f2f2;
             margin: 5px 0;
         }
+        /* Styling for active collapsible elements and on hover */
         .active, .collapsible:hover {
             background-color: #ccc;
         }
+        /* Styling for content inside collapsible elements */
         .content {
             padding: 0 18px;
             display: none;
@@ -82,11 +96,13 @@
             background-color: white;
             border-radius: 5px;
         }
+        /* Styling for two-column layout */
         .two-columns {
             display: flex;
             justify-content: space-between;
             gap: 20px;
         }
+        /* Styling for individual columns */
         .column {
             flex: 1;
             border: .5px solid #77c3e2;
@@ -96,12 +112,16 @@
     </style>
 </head>
 <body>
+    <!-- Main container for the webpage content -->
     <div class="container">
         <h1>Introduction to Web Applications</h1>
+        <!-- Button to reveal more information -->
         <div class="button" onclick="showMoreInfo()">Jump to Hyperspace</div>
         <div class="hidden-content" id="more-info">
             <p>Just as the Millennium Falcon navigates through space, overcoming obstacles and efficiently reaching its destination, web applications interact with front-end interfaces, back-end servers, and databases to provide users with a smooth, interactive, and dynamic experience across the web.</p>
         </div>
+
+        <!-- Section introducing web applications -->
         <div class="section" id="intro">
             <div class="text-content">
                 <h2>What are Web Applications?</h2>
@@ -113,6 +133,7 @@
             </div>
         </div>
 
+        <!-- Section explaining how web applications interact with back-end databases -->
         <div class="section" id="database">
             <div class="image-content">
                 <img src="cockpit.png" alt="Cockpit" class="image">
@@ -122,9 +143,9 @@
                 <p>The Millennium Falcon's cockpit and control panels represent the front-end of the web application. This is where a pilot interacts with the ship, just as users interact with the application's user interface (UI) built with things like HTML, CSS, and JavaScript.</p>
                 <p>When you need to jump to hyperspace or communicate with the Rebel base, you send out signals. Similarly, the front-end sends HTTP requests (GET, POST, PUT, DELETE) to the back-end server, much like signals sent to mission control.</p>
             </div>
-            
         </div>
 
+        <!-- Section providing use cases for web applications in businesses -->
         <div class="section" id="use-cases">
             <div class="text-content">
                 <h2>Use Cases in Businesses</h2>
@@ -135,7 +156,7 @@
                     </div>
                     <div class="column">
                         <h3>Internet</h3>
-                        <p>The Millennium Falcon's navigation computer is linked to the Rebel Alliance’s vast databases, which provide crucial information for the mission. When a request is made, the server (engines) queries the database (navigation computer) using  things like SQL or NoSQL queries. This retrieves or updates the data needed for the mission.</p>
+                        <p>The Millennium Falcon's navigation computer is linked to the Rebel Alliance’s vast databases, which provide crucial information for the mission. When a request is made, the server (engines) queries the database (navigation computer) using things like SQL or NoSQL queries. This retrieves or updates the data needed for the mission.</p>
                     </div>
                 </div>
             </div>
@@ -143,11 +164,10 @@
                 <img src="navigation-computer.png" alt="Navigation Computer" class="image">
             </div>
         </div>
-
-        
     </div>
 
     <script>
+        // Function to toggle the display of additional information
         function showMoreInfo() {
             var info = document.getElementById('more-info');
             if (info.style.display === 'none' || info.style.display === '') {
@@ -157,6 +177,7 @@
             }
         }
 
+        // Adds click event listeners to all elements with the class 'collapsible'
         var coll = document.getElementsByClassName("collapsible");
         for (var i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
